@@ -1,0 +1,623 @@
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 13px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .LogoImg {
+  padding: 1% 0%;
+  height: 1%;
+  width: 7%;
+}
+.header .linename {
+  margin-right: 10%;
+  height: -moz-min-content;
+  height: min-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.header .linename .name {
+  color: #1A1819;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  font-size: calc(2.0833333333vw + 10px);
+  margin: -1px 30px;
+  white-space: nowrap;
+  padding: 1px 30px;
+  border: 2px solid #1A1819;
+}
+.header .linename .name .decor-1, .header .linename .name .decor-2 {
+  position: relative;
+}
+.header .linename .name .decor-1::before, .header .linename .name .decor-2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  width: 1.2ch;
+  height: 2.5em;
+  background-color: #d4535c;
+}
+.header .linename .name .decor-2::before {
+  top: 50%;
+  transform: translateY(10%);
+  z-index: -1;
+  width: 1ch;
+  height: 1em;
+}
+
+.selected {
+  margin: 0px 0px;
+  position: fixed;
+  top: 0;
+  height: 110px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 13px 10px rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  z-index: 1;
+  transition: 0.5s;
+}
+.selected .selectedimg {
+  width: 25%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.selected .selectedimg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 25%;
+  height: 110px;
+  background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+}
+.selected .selectedimg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.selected .selectedroom, .selected .paramselectroom {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: bolder;
+}
+.selected .selectedroom .auditselect, .selected .paramselectroom .auditselect {
+  font-size: calc(0.78125vw + 10px);
+}
+.selected .selectedroom .steetselect, .selected .paramselectroom .steetselect {
+  font-size: calc(0.2604166667vw + 10px);
+  color: #d4535c;
+}
+.selected .selectedroom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0px;
+}
+.selected .paramselectroom {
+  width: 25%;
+  font-size: calc(0.5208333333vw + 10px);
+  font-weight: 300;
+  color: #d4535c;
+  line-height: 200%;
+}
+
+.content {
+  margin: 20vw 0vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hellomess {
+  border: 2px solid #1A1819;
+  width: 40.1041666667vw;
+  margin: 1% calc((100% - 40.1041666667vw) / 2);
+}
+.hellomess .decor2, .hellomess .decor3 {
+  border: 2px solid #1A1819;
+}
+.hellomess .decor2 {
+  height: 5vw;
+  width: 5%;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+.hellomess .decor3 {
+  height: 3vw;
+  width: 15%;
+  margin: 0% 0% -4% 95%;
+}
+.hellomess .messege {
+  padding: 35px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(0.5208333333vw + 10px);
+  line-height: 30px;
+  color: #1A1819;
+  text-align: center;
+  position: relative;
+}
+.hellomess .messege::before, .hellomess .messege::after {
+  content: "";
+  position: absolute;
+  border: 2px solid;
+}
+.hellomess .messege::before {
+  left: -15px;
+  top: -15%;
+  width: 25px;
+  height: 75px;
+}
+.hellomess .messege::after {
+  right: -10%;
+  bottom: -10%;
+  width: 80px;
+  height: 45px;
+}
+
+.catalog {
+  display: flex;
+  margin: 10vw 0vw;
+  justify-content: center;
+  flex-direction: column;
+}
+.catalog .menustreet {
+  display: flex;
+  width: 100%;
+}
+.catalog .menustreet .tablink {
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: #ffffff;
+  padding: 2%;
+  transition: 0.5s;
+  background-color: #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(1.5625vw + 10px);
+  line-height: 100%;
+  cursor: pointer;
+}
+.catalog .menustreet .tablink:hover {
+  background-color: #d9d9d9;
+}
+.catalog .menustreet #defaultOpen {
+  border-bottom: thick solid #d4535c;
+  border-width: 0.5vw;
+}
+.catalog .menustreet #linestreet {
+  background-color: #d4535c;
+  height: 0.5vw;
+  position: absolute;
+  margin: 9vw 0vw;
+}
+.catalog .contentstreet {
+  width: 100%;
+  display: flex;
+}
+.catalog .contentstreet .tabcontent {
+  color: rgb(4, 4, 4);
+  display: none;
+  padding: 10px 20px;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+.catalog .contentstreet .tabcontent::-webkit-scrollbar {
+  display: none;
+}
+.catalog .contentstreet .lastroom {
+  margin-right: 20vw;
+}
+.catalog .contentstreet .room, .catalog .contentstreet .lastroom {
+  background-color: #ffffff;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+  margin: 2vw;
+  cursor: pointer;
+}
+.catalog .contentstreet .room img, .catalog .contentstreet .lastroom img {
+  width: 31.25vw;
+}
+.catalog .contentstreet .room .nameroom, .catalog .contentstreet .lastroom .nameroom {
+  margin: 1vw;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(1.0416666667vw + 5px);
+  line-height: 100%;
+}
+.catalog .contentstreet .room .parametroom, .catalog .contentstreet .lastroom .parametroom {
+  padding: 2vw 1vw;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: calc(0.78125vw + 5px);
+  line-height: 100%;
+}
+.catalog .worktimeroom {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 0;
+  margin: 150px 0px;
+}
+.catalog .worktimeroom .calendarev-container-calendar {
+  display: block;
+  font-family: "IBM Plex Sans", sans-serif;
+  position: relative;
+  background: #ffffff;
+  min-height: 5vw;
+  margin: 5px 100px;
+}
+.catalog .worktimeroom .calendarev-container-calendar table {
+  border: 0;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 1vw 0;
+  max-width: 100%;
+  width: 100%;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .prev {
+  left: 0px;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .next {
+  right: 0px;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .prev, .catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .next {
+  color: #1A1819;
+  display: flex;
+  position: absolute;
+  top: 30%;
+  transition: 0.3s all ease;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .prev img, .catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .next img {
+  width: 1vw;
+  height: inherit;
+  padding: 0.5vw 1vw;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .prev :hover, .catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .next :hover {
+  color: #1A1819;
+  cursor: pointer;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .calendarev-selects {
+  display: flex;
+  position: relative;
+  padding: 1vw 2vw;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .calendarev-selects select {
+  display: table-cell;
+  width: auto;
+  position: relative;
+  font-size: calc(0.78125vw + 6px);
+  border: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: bolder;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .calendarev-selects select ::-ms-expand {
+  display: none;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-head .calendarev-selects select .calendarev-years {
+  text-align: center;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body {
+  display: table;
+  position: relative;
+  border-collapse: collapse;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body th {
+  padding: 10px;
+  font-size: calc(0.5208333333vw + 8px);
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: #1A1819;
+  text-align: center;
+  width: auto;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day {
+  font-size: calc(0.5208333333vw + 8px);
+  font-weight: 400;
+  padding: 10px;
+  text-align: center;
+  background-color: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day:hover {
+  cursor: pointer;
+  font-weight: 900;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-current {
+  background-color: rgba(125, 125, 125, 0.4705882353);
+  /*:hover {
+      background-color: #ECECEC;
+  }*/
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-event {
+  background-color: #d4535c;
+  color: #ffffff;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-event:hover > .event-popup {
+  display: block;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-event .event-popup {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #d4535c;
+  font-size: calc(0.5208333333vw + 8px);
+  color: #ffffff;
+  padding: 10px;
+  z-index: 5;
+  width: 150px;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-event .event-popup :before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 5px solid transparent;
+  border-top: 20px solid #1A1819;
+  bottom: -10px;
+  left: 17px;
+}
+.catalog .worktimeroom .calendarev-container-calendar .calendarev-calendar-body .calendarev-day-selected {
+  border: 0.2vw solid #1A1819;
+  font-size: calc(0.5208333333vw + 8px);
+}
+.catalog .worktimeroom .calendarev-events-container {
+  display: block;
+  position: relative;
+  width: 50%;
+  margin: 0px;
+  border: none;
+  border-left: 2px solid #1A1819;
+}
+.catalog .worktimeroom .calendarev-events-container .event-block {
+  display: block;
+  padding: 10px 75px;
+  height: auto;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  color: #d4535c;
+  width: -moz-max-content;
+  width: max-content;
+}
+.catalog .worktimeroom .calendarev-events-container .event-block h3 {
+  font-size: calc(1.0416666667vw + 5px);
+  margin: 0.1vw;
+  padding: 0;
+}
+.catalog .worktimeroom .calendarev-events-container .event-block article {
+  font-size: calc(0.78125vw + 5px);
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.buttons button {
+  border: none;
+  margin: 2vw 3vw;
+  padding: 1vw;
+  width: 30vw;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.buttons button .linebut {
+  border: 2px solid #1A1819;
+  position: relative;
+}
+.buttons button .linebut .namebut {
+  margin: 20px;
+  color: #1A1819;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: bolder;
+  font-size: calc(1.0416666667vw + 5px);
+}
+.buttons button .decor {
+  background-color: #d4535c;
+  height: 5vw;
+  width: 2vw;
+  position: absolute;
+  z-index: 0;
+}
+
+#booking {
+  display: none;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(26, 24, 25, 0.7764705882);
+  justify-content: center;
+  align-items: center;
+}
+#booking form {
+  position: fixed;
+  z-index: 10;
+  background-color: #ffffff;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  width: -moz-max-content;
+  width: max-content;
+}
+#booking form #close {
+  width: 1vw;
+  height: 1vw;
+  position: sticky;
+  left: 100%;
+  cursor: pointer;
+}
+#booking form .nameform {
+  font-size: 2vw;
+}
+#booking form .dataform {
+  margin: 1vw;
+}
+#booking form .timeform {
+  display: flex;
+  padding: 0.2vw;
+}
+#booking form .timeform select {
+  display: table-cell;
+  width: auto;
+  border: none;
+  padding: 0vw 2vw 0vw 1vw;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+#booking form .timeform select ::-ms-expand {
+  display: none;
+}
+#booking form .timeform select .calendarev-years {
+  text-align: center;
+}
+#booking form .formstep {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#booking form .formstep input, #booking form .formstep select {
+  width: 20vw;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  height: 2vw;
+  margin: 1vw;
+  border: none;
+  border-bottom: 0.2vw solid #1A1819;
+  box-shadow: inset;
+}
+#booking form button {
+  border: none;
+  margin: 2vw 3vw;
+  padding: 0.5vw;
+  width: 20vw;
+  background-color: #d4535c;
+  cursor: pointer;
+}
+#booking form button .linebut {
+  border: 0.3vw solid #ffffff;
+  position: relative;
+}
+#booking form button .linebut .namebut {
+  margin: 0.5vw;
+  color: #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5vw;
+  line-height: 100%;
+}
+#booking form button .decor {
+  background-color: #1A1819;
+  height: 2vw;
+  width: 1vw;
+  position: absolute;
+  z-index: 0;
+}
+
+.footer {
+  background-color: #d4535c;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+.footer .container {
+  border: 3px solid #ffffff;
+  margin: 2vw 10vw 2vw 30vw;
+  height: -moz-min-content;
+  height: min-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.footer .container .contactinfo {
+  color: #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 2vw;
+  margin: 1vw;
+}
+.footer .container .contactinfo .contact {
+  color: #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1vw;
+  margin: 2vw;
+}
+
+@media (max-width: 1100px) {
+  .header .LogoImg {
+    padding: calc(0.2083333333vw + 10px) 0%;
+  }
+  .header .linename .name {
+    font-size: calc(2.0833333333vw + 10px);
+    margin: 10px 30px;
+  }
+}
+@media (max-width: 800px) {
+  .header {
+    padding: auto;
+    height: -moz-max-content;
+    height: max-content;
+    justify-content: center;
+  }
+  .header .LogoImg {
+    display: none;
+  }
+  .header .linename {
+    margin: 0;
+  }
+  .header .linename .name {
+    margin: 15px 0;
+  }
+}/*# sourceMappingURL=mainstyle.css.map */

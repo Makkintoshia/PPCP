@@ -1,0 +1,652 @@
+$white: #ffffff;
+$black: #1A1819;
+$red: #d4535c;
+$font: 'IBM Plex Sans', sans-serif;
+$display: 100vw / 1920;
+
+body {
+    margin: 0;
+}
+.header {
+    background-color: $white;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: min-content;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 13px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .LogoImg {
+        padding: 1% 0%;
+        height: 1%;
+        width: 7%;
+    }
+    .linename {
+        //border: 2px solid $black;
+        margin-right: 10%;
+        height: min-content;
+        width: fit-content;
+        .name {
+            color: $black;
+            font-family: $font;
+            font-weight: 700;
+            font-size: calc(40 * $display + 10px);
+            margin: -1px 30px;
+            white-space: nowrap;
+            padding: 1px 30px;
+            border: 2px solid $black;
+            .decor-1, .decor-2 {
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: -1;
+                    width: 1.2ch;
+                    height: 2.5em;
+                    background-color: $red;
+                }
+            }
+            .decor-2 {
+                &::before {
+                    top: 50%;
+                    transform: translateY(10%);
+                    z-index: -1;
+                    width: 1ch;
+                    height: 1em;   
+                }
+            }
+        }
+    }
+}
+.selected {
+    margin: 0px 0px;
+    position: fixed;
+    top: 0;
+    height: 110px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 13px 10px rgba(0, 0, 0, 0.5);
+    background-color: $white;
+    z-index: 1;
+    transition: 0.5s;
+    .selectedimg {
+        width: 25%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        &::after {
+            content: "";
+            position: absolute;
+            //top: 0;
+            left: 0;
+            width: 25%;
+            height: 110px;
+            background: linear-gradient(to left, #ffffff,#ffffff00);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    .selectedroom, .paramselectroom {
+        font-family: $font;
+        font-weight: bolder;
+        .auditselect {
+            font-size: calc(15 * $display + 10px);
+        }
+        .steetselect {
+            font-size: calc(5 * $display + 10px);
+            color: $red;
+        }
+    }
+    .selectedroom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 0px;
+    }
+    .paramselectroom {
+        width: 25%;
+        font-size: calc(10 * $display + 10px);
+        font-weight: 300;
+        color: $red;
+        line-height: 200%;
+    }
+    
+}
+.content {
+    margin: 20vw 0vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hellomess {
+    border: 2px solid $black;
+    width: calc(40vw + 2 * $display);
+    margin: 1% calc((100% - (40vw + 2 * $display)) / 2);
+    .decor2, .decor3 {
+        border: 2px solid $black;
+    }
+    .decor2 {
+        height: 5vw;
+        width: 5%;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+    .decor3 {
+        height: 3vw;
+        width: 15%;
+        margin: 0% 0% -4% 95%;
+    }
+    .messege {
+        padding: 35px;
+        // margin-top: -4vw;
+        // margin-bottom: -2vw;
+
+        font-family: $font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: calc(10 * $display + 10px);
+        line-height: 30px;
+        color: $black;
+        text-align: center;
+
+        position: relative;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            border: 2px solid;
+        }
+        &::before {
+            left: -15px;
+            top: -15%;
+            width: 25px;
+            height: 75px;
+        }
+        &::after {
+            right: -10%;
+            bottom: -10%;
+            width: 80px;
+            height: 45px;
+        }
+    }
+}
+.catalog {
+    display: flex;
+    margin: 10vw 0vw;
+    justify-content: center;
+    flex-direction: column;
+    .menustreet {
+        display: flex;
+        width: 100%;
+        .tablink {
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            border-bottom-style: solid;
+            border-width: 2px;
+            border-color: $white;
+            padding: 2%;
+            transition: 0.5s;
+            background-color: $white;
+            font-family: $font;
+            font-style: normal;
+            font-weight: 700;
+            font-size: calc(30 * $display + 10px);
+            line-height: 100%;
+            cursor: pointer;
+            &:hover {
+                background-color: #d9d9d9;
+            }
+        }
+        #defaultOpen {
+            border-bottom: thick solid $red;
+            border-width: 0.5vw;
+        }
+        #linestreet {
+            background-color: $red;
+            height: 0.5vw;
+            position: absolute;
+            margin: 9vw 0vw;
+        }
+    }
+    .contentstreet {
+        width: 100%;
+        //margin-left: 30vw;
+        display: flex;
+        .tabcontent {
+            color: rgb(4, 4, 4);
+            display: none;
+            padding: 10px 20px;
+            height: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            width: 100%;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+        }
+        .lastroom{
+            margin-right: 20vw;
+        }
+
+        .room, .lastroom {
+            background-color: $white;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+            margin: 2vw;
+            cursor: pointer;
+            img {
+                width: calc(600 * $display);
+            }
+            .nameroom {
+                margin: 1vw;
+                font-family: $font;
+                font-style: normal;
+                font-weight: 700;
+                font-size: calc(20 * $display + 5px);
+                line-height: 100%;
+                //width: 100%;
+            }
+            .parametroom {
+                padding: 2vw 1vw;
+                font-family: $font;
+                font-style: normal;
+                font-weight: 300;
+                font-size: calc(15 * $display + 5px);
+                line-height: 100%;
+                //width: 100%;
+            }
+        }
+        
+    }
+    .worktimeroom{
+        display: flex;
+        justify-content: flex-end;
+        z-index: 0;
+        margin: 150px 0px;
+        .calendarev-container-calendar {
+            display: block;
+            font-family: $font;
+            position: relative;
+            background: $white;
+            min-height: 5vw;
+            margin: 5px 100px;
+            table {
+                //width: 100%;
+                border: 0;
+                border-collapse: collapse !important;
+                border-spacing: 0 !important;
+            }
+            .calendarev-calendar-head {
+                display: flex;
+                justify-content: center;
+                position: relative;
+                padding: 1vw 0;
+                max-width: 100%;
+                width: 100%;
+                .prev {
+                    left: 0px;
+                }
+                .next {
+                    right: 0px;
+                }
+                .prev, .next {
+                    color: $black;
+                    display: flex;
+                    position: absolute;
+                    top: 30%;
+                    transition: 0.3s all ease;
+                    img {
+                        width: 1vw;
+                        height: inherit;
+                        padding: 0.5vw 1vw;
+                    }
+                    :hover {
+                        color: $black;
+			            cursor: pointer;
+                    }
+                }
+                .calendarev-selects {
+                    display: flex;
+                    position: relative;
+                    padding: 1vw 2vw;
+                    //margin: 0 40px;
+                    //max-width: 100%;
+                    select {
+                        display: table-cell;
+                        width: auto;	
+                        position: relative;
+                        font-size: calc(15 * $display + 6px);
+                        //padding: 1vw 2vw;
+                        border: none;
+                        font-family: $font;
+                        font-weight: bolder;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        ::-ms-expand {
+                            display: none;
+                        }
+                        .calendarev-years{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            .calendarev-calendar-body {
+                display: table;
+                position: relative;
+                //width: 100%;
+                border-collapse: collapse;
+                th {
+                    padding: 10px;
+                    font-size: calc(10 * $display + 8px);
+                    text-transform: uppercase;
+                    font-weight: bolder;
+                    color: $black;
+                    text-align: center;
+                    width: auto;
+                }
+                .calendarev-day {
+                    font-size: calc(10 * $display + 8px);
+                    font-weight: 400;
+                    padding: 10px;
+                    text-align: center;
+                    background-color: none;
+                    position: relative;
+                    width: 20px;
+                    height: 20px;
+                    border: none;
+                    &:hover {
+                        cursor: pointer;
+                        font-weight: 900;
+                    }
+                }
+                .calendarev-day-current {
+                    background-color: #7d7d7d78;
+                    /*:hover {
+                        background-color: #ECECEC;
+                    }*/
+                }
+                .calendarev-day-event {
+                    background-color: $red;
+                    color: $white;
+                    &:hover > .event-popup {
+                        display: block;
+                    }
+                    .event-popup {
+                        display: none;
+                        position: absolute;
+                        bottom: 100%;
+                        left: 0;
+                        background-color: $red;
+                        font-size: calc(10 * $display + 8px);
+                        color: $white;
+                        padding: 10px;
+                        z-index: 5;
+                        width: 150px;
+                        :before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            border: 5px solid transparent;	
+                            border-top: 20px solid $black;
+                            bottom: -10px;
+                            left: 17px;
+                        }
+                    }
+                }
+                .calendarev-day-selected {
+                    border: 0.2vw solid $black;
+                    //font-weight: 700;
+				    font-size: calc(10 * $display + 8px);
+                }
+
+            }
+            
+
+        }
+        .calendarev-events-container {
+                display: block;
+                position: relative;
+                //min-width: 250px;
+                //height: 1;
+                width: 50%;
+                margin: 0px;
+                border: none;
+                border-left: 2px solid $black;
+                .event-block {
+                    display: block;
+                    //border: 1px solid black;
+                    padding: 10px 75px;
+                    height: auto;
+                    font-family: $font;
+                    font-weight: 700;
+                    color: $red;
+                    width: max-content;
+                    :nth-child(odd) {
+                        //background-color: #952828;
+                    }
+                    h3 {
+                        font-size: calc(20 * $display + 5px);
+                        margin: 0.1vw;
+                        padding: 0;
+                    }
+                    article {
+                        font-size: calc(15 * $display + 5px);
+                        font-weight: 500;
+                    }
+                }
+            }
+    }
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    button {
+        border: none;
+        margin: 2vw 3vw;
+        padding: 1vw;
+        width: 30vw;
+        background-color: $white;
+        cursor: pointer;
+        .linebut {
+            border: 2px solid $black;
+            position: relative;
+            .namebut {
+                margin: 20px;
+                color: $black;
+                font-family: $font;
+                font-weight: bolder;
+                font-size: calc(20 * $display + 5px);
+            }
+        }
+        .decor {
+            background-color: $red;
+            height: 5vw;
+            width: 2vw;
+            position: absolute;
+            z-index: 0;
+            
+        }
+    }
+}
+
+#booking {
+    display: none;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #1a1819c6;
+    justify-content: center;
+    align-items: center;
+    form{
+        position: fixed;
+        z-index: 10;
+        background-color: $white;
+        //left: 0vw;
+        //top: 1vw;
+        padding: 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: $font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5vw;
+        width: max-content;
+        #close {
+            width: 1vw;
+            height: 1vw;
+            position: sticky;
+            left: 100%;
+            cursor: pointer;
+        }
+        .nameform {
+            font-size: 2vw;
+        }
+        .dataform {
+            margin: 1vw;
+        }
+        .timeform {
+            display: flex;
+            padding: 0.2vw;
+            select {
+                display: table-cell;
+                width: auto;
+                border: none;
+                padding: 0vw 2vw 0vw 1vw;
+                font-family: $font;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.5vw;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                ::-ms-expand {
+                    display: none;
+                }
+                .calendarev-years{
+                    text-align: center;
+                }
+            }
+        }
+        .formstep {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            input, select {
+                width: 20vw;
+                font-family: $font;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 1.5vw;
+                height: 2vw;
+                margin: 1vw;
+                border: none;
+                border-bottom: 0.2vw solid $black;
+                box-shadow: inset ;
+            }
+        }
+        button {
+            border: none;
+            margin: 2vw 3vw;
+            padding: 0.5vw;
+            width: 20vw;
+            background-color: $red;
+            cursor: pointer;
+            .linebut {
+                border: 0.3vw solid $white;
+                position: relative;
+                .namebut {
+                    margin: 0.5vw;
+                    color: $white;
+                    font-family: $font;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 1.5vw;
+                    line-height: 100%;
+                }
+            }
+            .decor {
+                background-color: $black;
+                height: 2vw;
+                width: 1vw;
+                position: absolute;
+                z-index: 0;
+                
+            }
+        }
+    }
+    
+}
+
+.footer {
+    background-color: $red;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    .container {
+        border: 3px solid $white;
+        margin: 2vw 10vw 2vw 30vw;
+        height: min-content;
+        width: fit-content;
+        .contactinfo {
+            color: $white;
+            font-family: $font;
+            font-size: 2vw;
+            margin: 1vw;
+            .contact {
+                color: $white;
+                font-family: $font;
+                font-size: 1vw;
+                margin: 2vw;
+            }
+        }
+    }
+}
+@media (max-width: 1100px) {
+    .header {
+        .LogoImg{
+            padding: calc(4 * $display + 10px) 0%;
+        }
+        .linename {
+            .name {
+                font-size: calc(40 * $display + 10px);
+                margin: 10px 30px;
+            }
+        }
+    }
+}
+@media (max-width: 800px) {
+    .header {
+        padding: auto;
+        height: max-content;
+        justify-content: center;
+        .LogoImg {
+            display: none;
+        }
+        .linename {
+            margin: 0;
+            .name {
+                margin: 15px 0;
+            }
+        }
+    }
+}
